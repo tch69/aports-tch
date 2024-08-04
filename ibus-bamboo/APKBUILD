@@ -1,0 +1,24 @@
+# Maintainer: Pham Ngoc-Dung <ifa26417@aol.com>
+pkgname=ibus-bamboo
+gitver=0.8.4-RC1
+pkgver=0.8.4_rc1
+pkgrel=1
+pkgdesc="A Vietnamese IME for IBus"
+arch="all"
+url="https://github.com/BambooEngine/ibus-bamboo"
+license="GPL-3"
+depends="ibus go"
+makedepends="go gtk+3.0-dev libx11-dev libxtst-dev"
+source="$pkgname-$gitver.tar.gz::https://github.com/BambooEngine/$pkgname/archive/v$gitver.tar.gz"
+builddir="$srcdir"/$pkgname-$gitver
+
+build() {
+    make
+}
+
+package() {
+    make DESTDIR="$pkgdir/" install
+}
+sha512sums="
+127e1d62dc7b8839b5903f1e3d36a53bc69422e079d847ac68026e6e3d28d97506bdbc8a6020d227a5aa15dc342e2dbe8d388b8fa9dd2fc52ce3ff35908bdfd5  ibus-bamboo-0.8.4-RC1.tar.gz
+"
